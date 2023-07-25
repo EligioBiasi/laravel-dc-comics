@@ -19,4 +19,5 @@ Route::get('/',[PageController::class, 'home']);
 
 Route::get('admin/comics', [AdminComicsController::class, 'index']);
 Route::get('admin/comics/create', [AdminComicsController::class, 'create'])->name('admin.comics.crate');
+Route::post('admin/comics', [AdminComicsController::class, 'store'])->name('admin.comics.store');
 Route::get('admin/comics/{id}', [AdminComicsController::class, 'show'])->name('admin.comics.show');
