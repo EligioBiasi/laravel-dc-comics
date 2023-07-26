@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comic;
+use Spatie\FlareClient\View;
 
 class ComicsController extends Controller
 {
@@ -72,7 +73,8 @@ class ComicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic= Comic::findOrFail($id);
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -84,7 +86,7 @@ class ComicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**
