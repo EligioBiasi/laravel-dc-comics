@@ -8,7 +8,7 @@
     @vite('resources/js/app.js')
 </head>
     <body>
-        <div class="container">
+        <div>
             <h1 class="mb-4 text-center">Orrific Comics Table</h1>
             <div class="row">
                 <div class="col-12">
@@ -31,7 +31,17 @@
                                     <td>{{$comic->description}}</td>
                                     <td>{{$comic->series}}</td>
                                     <td>{{$comic->type}}</td>
-                                    <td><a class="btn btn-warning" href="{{ route('admin.comics.show', $comic->id ) }}">View</a></td>
+                                    <td>
+                                        <a class="btn btn-warning" href="{{ route('admin.comics.show', $comic->id ) }}">View</a>
+                                        <form action="{{ route('admin.comics.destroy', $comic->id ) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        
+                                            <button type="submit" class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
